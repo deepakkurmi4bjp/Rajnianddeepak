@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile representing admin or collector",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Auth UID" },
+        "name": { "type": "string", "description": "Full name" },
+        "mobile": { "type": "string", "description": "10-digit mobile number" },
+        "role": { "type": "string", "enum": ["super_admin", "admin", "collector"] },
+        "email": { "type": "string", "description": "Email address" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["uid", "name", "role"]
+    },
+    "Donation": {
+      "title": "Donation",
+      "description": "Official donation record for Shri Maa Narmada Bhakt Pariwar",
+      "type": "object",
+      "properties": {
+        "donationId": { "type": "string", "description": "Unique donation receipt ID" },
+        "name": { "type": "string", "description": "Donor full name" },
+        "mobile": { "type": "string", "description": "Donor mobile number" },
+        "amount": { "type": "number", "description": "Donation amount in INR" },
+        "purpose": { "type": "string", "description": "Donation purpose or celebration" },
+        "paymentMethod": { "type": "string", "enum": ["cash", "upi"] },
+        "transactionId": { "type": "string", "description": "UPI Transaction ID / UTR" },
+        "collectorId": { "type": "string", "description": "UID of collector" },
+        "collectorName": { "type": "string", "description": "Name of collector" },
+        "hash": { "type": "string", "description": "HMAC-SHA256 verification hash" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["donationId", "name", "mobile", "amount", "paymentMethod", "hash"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "System audit log for transparency",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "User UID who performed action" },
+        "userName": { "type": "string", "description": "User name" },
+        "action": { "type": "string", "description": "Action performed" },
+        "details": { "type": "string", "description": "Details of the action" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp" }
+      },
+      "required": ["action", "details"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User accounts collection"
+    },
+    "/donations/{donationId}": {
+      "schema": { "$ref": "#/entities/Donation" },
+      "description": "Public donations collection"
+    },
+    "/audit_logs/{logId}": {
+      "schema": { "$ref": "#/entities/AuditLog" },
+      "description": "Audit trail logs"
+    }
+  }
+}

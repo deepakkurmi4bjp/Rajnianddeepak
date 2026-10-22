@@ -1,11 +1,43 @@
-<div align="center">
+# श्री मां नर्मदा भक्त परिवार — दान प्रबंधन (Narmada Daan)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+आधिकारिक दान प्रबंधन एवं डिजिटल रसीद सत्यापन एंड्रॉइड एप्लिकेशन (Official Donation Management & Digital Receipt Verification System).
 
-  <h1>Built with AI Studio</h2>
+## मुख्य विशेषताएं (Key Features)
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+1. **सार्वजनिक डैशबोर्ड (Public Dashboard)**
+   - कुल एकत्रित दान राशि (Total Raised) एवं आज का संग्रह (Today's Collection)
+   - कुल दानदाता एवं आज जुड़े दानदाता
+   - नकद (Cash) एवं ऑनलाइन (UPI) भुगतान का प्रतिशत एवं विवरण
+   - दानदाता के नाम या मोबाइल नंबर से लाइव खोज
+   - वास्तविक समय में हाल के दान रिकॉर्ड्स
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+2. **दान संग्रहण पैनल (Collector Panel)**
+   - दानदाता का नाम एवं 10-अंकीय मोबाइल नंबर
+   - त्वरित दान राशि चयन (₹101, ₹251, ₹501, ₹1100, ₹2100, ₹5100, ₹11000 या अन्य)
+   - चंदे का उद्देश्य (श्री मां नर्मदा जन्मोत्सव चुनरी यात्रा, श्री राम जन्मोत्सव शोभायात्रा, धर्म रक्षा निधि संग्रहण आदि)
+   - नकद या PhonePe UPI QR कोड (`7440771076-3@ibl`) एवं UTR नंबर सत्यापन
+   - एक क्लिक में आधिकारिक डिजिटल दान रसीद जारी करना
 
-</div>
+3. **डिजिटल दान रसीद (Official Digital Receipt)**
+   - श्री मां नर्मदा भक्त परिवार का अधिकृत लोगो एवं सील
+   - अद्वितीय रसीद क्रमांक (उदा. `ND-2026-1042`)
+   - शब्दों में राशि (उदा. "ग्यारह हज़ार रुपये मात्र")
+   - HMAC-SHA256 क्रिप्टोग्राफ़िक सुरक्षा हैश
+   - WhatsApp पर रसीद भेजने की त्वरित सुविधा एवं सिस्टम शेयर
+
+4. **रसीद सत्यापन पोर्टल (Receipt Verification Portal)**
+   - रसीद संख्या डालकर प्रामाणिकता की जांच
+   - हरा/आसमानी "✅ वैध रसीद (VERIFIED & AUTHENTIC)" प्रमाणपत्र
+   - जाली या छेड़छाड़ किए गए दस्तावेज़ों पर तत्काल "❌ अमान्य रसीद" चेतावनी
+
+5. **प्रशासन एवं ऑडिट ट्रेल (Admin & Audit Trail)**
+   - क्लाउड डेटाबेस (Firebase Firestore) से रीयल-टाइम डेटा सिंक्रोनाइज़ेशन
+   - प्रत्येक दान एवं गतिविधि का संपूर्ण ऑडिट लॉग
+   - संग्रहकर्ताओं का व्यक्तिगत संग्रह प्रदर्शन एवं रैंकिंग
+
+## तकनीकी विवरण (Tech Stack)
+
+- **भाषा:** Kotlin 2.1
+- **UI:** Jetpack Compose, Material Design 3
+- **डेटाबेस:** Google Cloud Firebase Firestore
+- **सुरक्षा:** HMAC-SHA256 Cryptographic Verification
